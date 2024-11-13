@@ -37,20 +37,58 @@ public class LegendsOfValor implements Game{
     // Method to initialize the game board with random spaces
     private void initializeBoard() {
         // Total cells in the board
-        int totalCells = rows * cols;
+        int totalCells = 45; //subtracting restricted spaces and hero starting spaces
 
-        // Put in lines for innacessable spaces
-        for(int r = 0; r < rows; r++) {
-            for(int c = 2; c < cols; c+=3) {
-                gameBoard.getBoard()[r][c] = new BoardCell(new InaccessibleSpace());
-            }
+        // Calculate numbers of each space type
+        int numBush = 9;
+        int numCave = 9;
+        int numKoulou = 9;
+        int numCommon = 18;
+
+
+
+        // Create lists for each space type
+        ArrayList<BoardCell> spaces = new ArrayList<>();
+
+        // Add specific space objects to the list based on the calculated number
+        for (int i = 0; i < numBush; i++) {
+            spaces.add(new BushSpace());
+        }
+        for (int i = 0; i < numCave; i++) {
+            spaces.add(new CaveSpace());
+        }
+        for (int i = 0; i < numKoulou; i++) {
+            spaces.add(new KoulouSpace());
+        }
+        for (int i = 0; i < numCommon; i++) {
+            spaces.add(new CommonSpace());
         }
 
-        // put the heros in the starting spaces
-        for(int heroNum = 0; heroNum<3; heroNum++){
-            int row = playerPositions[heroNum][0];
-            int col = playerPositions[heroNum][1];
-            gameBoard.getBoard()[row][col] = new BoardCell(new HeroSpace());
+        // Shuffle spaces to randomize placement
+        Collections.shuffle(spaces, new Random());
+
+
+        int index = 0;
+        // Put in lines for innacessable spaces
+        for(int r = 0; r < rows; r++) {
+            for(int c = 0; c < cols; c++) {
+
+                //Ineccesible space
+                if((c+1)%3==0) {
+                    gameBoard.getBoard()[r][c] = new BoardCell(new InaccessibleSpace());
+                }
+                //Make hero space
+                else if((r == 7) && (c == 0 || c == 3 || c == 6) ) {
+                    int heroNum = c/3;
+                    int row = playerPositions[heroNum][0];
+                    int col = playerPositions[heroNum][1];
+                    gameBoard.getBoard()[row][col] = new BoardCell(new HeroSpace(heroNum));
+                }
+                else{
+                    gameBoard.getBoard()[r][c] = new BoardCell(spaces.get(index));
+                    index++;
+                }
+            }
         }
 
     }
