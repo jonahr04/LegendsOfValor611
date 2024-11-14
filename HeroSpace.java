@@ -11,6 +11,13 @@ public class HeroSpace extends BoardCell{
         piece  = "\u001B[33;1mH\u001B[0m";
     }
 
+    //Overloaded Constructor
+    public HeroSpace(int heroNum) {
+        heroNum = heroNum +1;
+        piece  = "\u001B[33;1mH"+heroNum+"\u001B[0m";
+    }
+
+
     @Override
     public String toString() {
         return piece;

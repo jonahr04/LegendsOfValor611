@@ -13,7 +13,7 @@ public class LegendsOfValor implements Game{
     private List<Hero> Heros; // List of heroes chosen by the player
     // Initial position of the heroes, first index is which player 0-2 and second index is 0 for row 1 for col
     int[][] playerPositions = new int[3][2]; // 3 players, each with [row, col]
-
+    private ValorBattle valorBattle;
 
 
 
@@ -91,11 +91,14 @@ public class LegendsOfValor implements Game{
             }
         }
 
+        valorBattle = new ValorBattle(this);
+
     }
 
     @Override
     public void play(Player[] players) {
        gameBoard.displayBoard();
+       valorBattle.round();
     }
 
 
@@ -187,5 +190,18 @@ public class LegendsOfValor implements Game{
         if(Heros.isEmpty())
             return true;
         return false;
+    }
+
+    public List<Hero> getHeroes() {
+        return Heros;
+    }
+
+    public boolean getHeroAction(int heroIdx){
+        // return false if not a valid move (buying & selling)
+
+        // return true if valid move(move/attack monsters)
+        // if attack monsters: choose monster, call valorBattle.withinAttackRange to verify
+        // valorBattle.heroMove(hero, monster, 0);
+        return true;
     }
 }
