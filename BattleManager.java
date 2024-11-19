@@ -337,7 +337,7 @@ public class BattleManager {
     }
 
     // Monster's automatic attack action
-    private void performMonsterAction(Monster monster, Hero target) {
+    public void performMonsterAction(Monster monster, Hero target) {
         int armorReduction = target.getArmorReduction();
 
         System.out.print(monster.getName() + " attacks " + target.getName() + "! ");

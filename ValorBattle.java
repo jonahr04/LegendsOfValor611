@@ -4,6 +4,7 @@ import static java.lang.Math.abs;
 
 public class ValorBattle {
     private final LegendsOfValor game;
+    BattleManager battleManager;
 
     private List<Monster> monsters;
     List<int[]> monstersPositions;
@@ -13,7 +14,9 @@ public class ValorBattle {
     int roundsForNewMonsters = 5;
 
     ValorBattle(LegendsOfValor game) {
+
         this.game = game;
+        battleManager = new BattleManager(game.getHeroes(), monsters);
     }
 
     List<int[]> getMonstersPositions() {
@@ -43,6 +46,7 @@ public class ValorBattle {
                 return;
         }
         actionStrategy.execute(hero, monster);
+        // If monster is dead: remove it from the list
     }
 
 
@@ -50,8 +54,8 @@ public class ValorBattle {
         if(round % roundsForNewMonsters == 0){
             createNewMonsters();
         }
-        heroesMove(); // Move or Attack Monsters
-        monstersMove(); // Move or Attack Heroes
+        heroesMove();
+        monstersMove();
         round++;
     }
 
@@ -64,10 +68,27 @@ public class ValorBattle {
 
     void monstersMove(){
         // Move or attack heroes by chance
+        for(int monsterIdx = 0; monsterIdx < monsters.size(); monsterIdx++){
+            int heroIdx = monstersPositions.get(monsterIdx)[1]/2;
+            if(withinAttackRange(heroIdx, monsterIdx)){
+                monsterMove(game.getHeroes().get(heroIdx), monsters.get(monsterIdx));
+            }else{
+                monsterPosMove(monsterIdx);
+            }
+
+        }
+
     }
 
     void monsterMove(Hero hero, Monster monster){
+        if (monster.getHP() > 0) {
+            battleManager.performMonsterAction(monster, hero);
+        }
+        // If hero is dead: initialize its position & reset MP
+    }
 
+    void monsterPosMove(int monsterIdx){
+        monstersPositions.get(monsterIdx)[1]++;
     }
 
     void createNewMonsters(){
