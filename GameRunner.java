@@ -30,7 +30,8 @@ public class GameRunner {
             System.out.println("2. Order and Chaos");
             System.out.println("3. Super Tic Tac Toe");
             System.out.println("4. Monsters and Heros");
-            System.out.println("5. Display Statistics");
+            System.out.println("5. Monsters and Heros");
+            System.out.println("6. Display Statistics");
             System.out.println("q. Quit");
 
             String choice = scanner.nextLine().toLowerCase();
@@ -48,6 +49,9 @@ public class GameRunner {
                     playMonstersAndHeros();
                     break;
                 case "5":
+                    playLegendsOfValor();
+                    break;
+                case "6":
                     displayStats();
                     break;
                 case "q":
@@ -128,6 +132,11 @@ public class GameRunner {
     private void playMonstersAndHeros() {
         MonstersAndHeros monstersAndHeros = new MonstersAndHeros();
         monstersAndHeros.play(players);
+    }
+
+    private void playLegendsOfValor() {
+        LegendsOfValor legendsOfValor = new LegendsOfValor();
+        legendsOfValor.play(players);
     }
 
     private void displayStats() {
