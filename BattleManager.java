@@ -396,7 +396,7 @@ public class BattleManager {
     }
 
     // End-of-round recovery for heroes
-    private void endOfRoundRecovery() {
+    public void endOfRoundRecovery() {
         for (Hero hero : heroes) {
             hero.recoverHP(0.075);  // Recover 10% of max HP
             hero.recoverMP(0.075);  // Recover 10% of max MP

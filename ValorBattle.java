@@ -69,6 +69,7 @@ public class ValorBattle {
         }
         heroesMove();
         monstersMove();
+        battleManager.endOfRoundRecovery();
         round++;
     }
 
