@@ -383,7 +383,7 @@ public class LegendsOfValor implements Game{
                 int actionChoice = (int) result[0];
                 int monsterIdx = (int) result[1];
                 if(!valorBattle.withinAttackRange(heroIdx, monsterIdx)){
-                    System.out.println("Hero " + heroIdx + " can not attack this monster, it is out of range!");
+                    System.out.println("Hero " + (heroIdx+1) + " can not attack this monster, it is out of range!");
                     return false;
                 }
                 valorBattle.heroMove(heroIdx, monsterIdx, actionChoice);

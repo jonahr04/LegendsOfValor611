@@ -12,7 +12,7 @@ public class ValorBattle {
 
 
     int round = 0;
-    int roundsForNewMonsters = 2;
+    int roundsForNewMonsters = 4;
 
     ValorBattle(LegendsOfValor game) {
         this.game = game;
