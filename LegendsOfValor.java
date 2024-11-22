@@ -277,6 +277,28 @@ public class LegendsOfValor implements Game{
             return false;
         }
 
+        List<int[]> monsterPos = valorBattle.getMonstersPositions();
+
+        //Make sure Not above a monster
+        for(int[] pos : monsterPos) {
+            if(row<pos[0] && col == pos[1]) {
+                System.out.println("Can not move above monster");
+                return false;
+            }
+        }
+
+        //Make sure hero 1, 2 or 3 isn't there
+        if(row == playerPositions[0][0] && col == playerPositions[0][1]){
+            System.out.println("Invalid coordinates, hero 1 occupies this spot");
+            return false;
+        } else if(row == playerPositions[1][0] && col == playerPositions[1][1]){
+            System.out.println("Invalid coordinates, hero 2 occupies this spot");
+            return false;
+        } else if(row == playerPositions[2][0] && col == playerPositions[2][1]){
+            System.out.println("Invalid coordinates, hero 3 occupies this spot");
+            return false;
+        }
+
         // Check if the target cell is an InaccessibleSpace (marked with "X")
         BoardCell targetCell = gameBoard.getBoard()[row][col];
         if (targetCell.toString().equals("\u001B[31mX\u001B[0m")) {
@@ -300,8 +322,8 @@ public class LegendsOfValor implements Game{
     }
 
     public void promptForInput(int heroIdx){
-        // TODO: More Actions
-        System.out.println("Player, enter your move for hero " +  (heroIdx + 1) +": (w,a,s,d, m (nexus market) , i (info), b (attack), r (recall), t (teleport), q (quit)): ");
+        System.out.println("Player, enter your move for hero " +  (heroIdx + 1) +": (w,a,s,d, m (nexus market) , " +
+                "e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)): ");
     }
 
     public Object[] readInput() {
@@ -329,6 +351,8 @@ public class LegendsOfValor implements Game{
                     return new Object[]{"teleport"};
                 case "m":
                     return new Object[]{"market"};
+                case "e":
+                    return new Object[]{"equip"};
                 default:
                     System.out.println("Invalid input. Please try again.");
                     return null;
@@ -338,7 +362,6 @@ public class LegendsOfValor implements Game{
             return null;
         }
     }
-
 
     private boolean moveHero(String direction, int heroIdx) {
         int row = playerPositions[heroIdx][0];
@@ -364,7 +387,6 @@ public class LegendsOfValor implements Game{
                 return false;
         }
 
-        // TODO: Check if the move is valid for the specific hero
         if (!isValidMove(newRow, newCol, gameBoard)) {
             System.out.println("You cannot move there. The space is inaccessible or out of bounds.");
             return false;
@@ -475,6 +497,9 @@ public class LegendsOfValor implements Game{
 
                 System.out.println("Not at nexus space. Please try again.");
                 return false;
+            case "equip":
+                equipItems(heroIdx);
+                return false; //Doesnt count as a turn
             default:
                 return false;
         }
@@ -565,7 +590,8 @@ public class LegendsOfValor implements Game{
         playerPositions[heroIdx][1] = col;
     }
 
-    public void inMarket(NexusSpace market, int heroIdx) {
+    // Method will complete the inMarket actions for a hero
+    private void inMarket(NexusSpace market, int heroIdx) {
         Scanner scanner = new Scanner(System.in);
         boolean leaveMarket = false;
 
@@ -662,5 +688,105 @@ public class LegendsOfValor implements Game{
                 }
             }
 
+    }
+
+    // Method to equip items
+    private void equipItems(int heroInx) {
+        Hero hero = Heros.get(heroInx);
+        boolean equipMenuActive = true;
+
+        //get Hands Available
+        Inventory inventory = hero.getInventory();
+        int handsAvailable = hero.getHandsAvailable();
+
+        System.out.println("\nHello hero "+(heroInx+1)+", you have " + handsAvailable + "/2 hands available.\nThis is your inventory:");
+        Inventory heroInventory = hero.getInventory();
+        heroInventory.displayInventory();
+
+        while (equipMenuActive) {
+            System.out.println("\nEquipment Menu: ");
+            System.out.println("1. Equip Item");
+            System.out.println("2. Unequip Item");
+            System.out.println("3. Leave Equipment Menu");
+
+            System.out.print("Choose an option (1-3): ");
+            String input = scanner.nextLine().trim();
+
+            switch (input) {
+                case "1": // Equip Item
+                    inventory.displayInventory();
+                    System.out.print("Enter the item number to equip:  ");
+                    try {
+                        int itemIndex = Integer.parseInt(scanner.nextLine().trim()) - 1;
+
+                        if (itemIndex >= 0 && itemIndex < inventory.getItems().size()) {
+                            Item item = inventory.getItems().get(itemIndex);
+
+                            if (item instanceof Armor) {
+                                if (hero.hasEquippedArmor()) {
+                                    System.out.println("You already have an armor equipped. Unequip it first to equip a new one. ");
+                                } else {
+                                    ((Equipable) item).equip();
+                                    System.out.println(item.getName() + " equipped as armor.");
+                                }
+                            } else if (item instanceof Weapon) {
+                                int requiredHands = ((Weapon) item).getHandsRequired();
+                                if (requiredHands <= handsAvailable) {
+                                    ((Equipable) item).equip();
+                                    handsAvailable -= requiredHands;
+                                    System.out.println(item.getName() + " equipped as a weapon. "+handsAvailable+" hands available. ");
+                                } else {
+                                    System.out.println("Not enough hands available to equip " + item.getName() + ".");
+                                }
+                            } else {
+                                System.out.println("Cannot equip this item.");
+                            }
+                        } else {
+                            System.out.println("Invalid item number.");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Please enter a valid number.");
+                    }
+                    break;
+
+                case "2": // Unequip Item
+                    inventory.displayInventory();
+                    System.out.print("Enter the item number to unequip:  ");
+                    try {
+                        int itemIndex = Integer.parseInt(scanner.nextLine().trim()) - 1;
+
+                        if (itemIndex >= 0 && itemIndex < inventory.getItems().size()) {
+                            Item item = inventory.getItems().get(itemIndex);
+
+                            if (item instanceof Equipable && ((Equipable) item).isEquipped()) {
+                                ((Equipable) item).unequip();
+                                if (item instanceof Weapon) {
+                                    handsAvailable += ((Weapon) item).getHandsRequired();
+                                }
+                                System.out.println(item.getName() + " unequipped.");
+                            } else {
+                                System.out.println("This item is not currently equipped.");
+                            }
+                        } else {
+                            System.out.println("Invalid item number.");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Please enter a valid number.");
+                    }
+                    break;
+
+                case "3": // Leave Equipment Menu
+                    if (!hero.hasEquippedWeapon()) {  // Check if weapon is equipped
+                        System.out.println("\u001B[93mNeed Weapon Equipped! Go back and equip at least 1 weapon!\u001B[0m");
+                    } else {
+                        equipMenuActive = false;
+                    }
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+                    break;
+            }
+        }
     }
 }
