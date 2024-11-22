@@ -394,8 +394,50 @@ public class LegendsOfValor implements Game{
 
         playerPositions[heroIdx][0] = newRow;
         playerPositions[heroIdx][1] = newCol;
+        Hero hero = Heros.get(heroIdx);
+        BoardCell newSpace = gameBoard.getBoard()[newRow][newCol];
+        BoardCell oldSpace = gameBoard.getBoard()[row][col];
+        updateStatsWhenMoved(hero, newSpace, oldSpace);
 
         return true;
+    }
+
+    public void updateStatsWhenMoved(Hero hero,BoardCell newSpace, BoardCell oldSpace) {
+        //take away previous bonus (divide by 1.5)
+        if(oldSpace.getCellValue() instanceof BushSpace){
+            int dexterity = hero.getDexterity();
+            int newDexterity = (int) (dexterity/1.5);
+            hero.increaseDexterity( (newDexterity-dexterity));
+            System.out.println("\u001B[31mLeaving BushSpace. Changing dexterity from "+ dexterity+" -> "+newDexterity+"\u001B[0m");
+        } else if (oldSpace.getCellValue() instanceof CaveSpace) {
+            int agility = hero.getAgility();
+            int newAgility = (int) (agility/1.5);
+            hero.increaseAgility( (newAgility-agility));
+            System.out.println("\u001B[31mLeaving to CaveSpace. Changing agility from "+ agility+" -> "+newAgility+"\u001B[0m");
+        } else if (oldSpace.getCellValue() instanceof KoulouSpace) {
+            int strength = hero.getStrength();
+            int newStrength = (int) (strength/1.5);
+            hero.increaseStrength( (newStrength-strength));
+            System.out.println("\u001B[31mLeaving to KoulouSpace. Changing strength from "+ strength+" -> "+newStrength+"\u001B[0m");
+        }
+
+        //Add Bonuses (multiply by 1.5)
+        if(newSpace.getCellValue() instanceof BushSpace){
+            int dexterity = hero.getDexterity();
+            int newDexterity = (int) (dexterity*1.5);
+            hero.increaseDexterity( (newDexterity-dexterity));
+            System.out.println("\u001B[32mGoing to BushSpace. Changing dexterity from "+ dexterity+" -> "+newDexterity+"\u001B[0m");
+        } else if (newSpace.getCellValue() instanceof CaveSpace) {
+            int agility = hero.getAgility();
+            int newAgility = (int) (agility*1.5);
+            hero.increaseAgility( (newAgility-agility));
+            System.out.println("\u001B[32mGoing to CaveSpace. Changing agility from "+ agility+" -> "+newAgility+"\u001B[0m");
+        } else if (newSpace.getCellValue() instanceof KoulouSpace) {
+            int strength = hero.getStrength();
+            int newStrength = (int) (strength*1.5);
+            hero.increaseStrength( (newStrength-strength));
+            System.out.println("\u001B[32mGoing to KoulouSpace. Changing strength from "+ strength+" -> "+newStrength+"\u001B[0m");
+        }
     }
 
     public Object[] selectTargetAndActionType(){
@@ -510,6 +552,7 @@ public class LegendsOfValor implements Game{
         int row = 0;
         int col = 0;
         int targetIndex;
+        BoardCell oldSpace = gameBoard.getBoard()[row][col];
 
         System.out.println("\nEnter the coordinates where you want to teleport to:");
 
@@ -588,6 +631,10 @@ public class LegendsOfValor implements Game{
         //Move the player once we found valid inputs
         playerPositions[heroIdx][0] = row;
         playerPositions[heroIdx][1] = col;
+
+        BoardCell newSpace = gameBoard.getBoard()[row][col];
+        Hero hero = Heros.get(heroIdx);
+        updateStatsWhenMoved(hero, newSpace, oldSpace);
     }
 
     // Method will complete the inMarket actions for a hero
