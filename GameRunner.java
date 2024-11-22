@@ -30,7 +30,7 @@ public class GameRunner {
             System.out.println("2. Order and Chaos");
             System.out.println("3. Super Tic Tac Toe");
             System.out.println("4. Monsters and Heros");
-            System.out.println("5. Monsters and Heros");
+            System.out.println("5. Legends of Valor");
             System.out.println("6. Display Statistics");
             System.out.println("q. Quit");
 
