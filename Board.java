@@ -80,7 +80,13 @@ public class Board {
     public void printValRowLine(int row){
         System.out.print((row+1)+" ");
         for(int c = 0; c < cols; c++){
-            System.out.print("| "+ grid[row][c].toString()+"  ");
+
+            //Fix spacing for when H1 takes up two spaces
+            if(grid[row][c].toString().length()>12){
+                System.out.print("| "+ grid[row][c].toString()+" ");
+            }else {
+                System.out.print("| "+ grid[row][c].toString()+"  ");
+            }
         }
         System.out.println("|");
     }
