@@ -83,55 +83,57 @@ public class Board {
             printDivRowLine();
 
             System.out.print((r+1)+" ");
-            for(int c = 0; c < cols; c++){
+            for(int c = 0; c < cols; c++) {
 
                 boolean heroAtSpace = false;
                 boolean monsterAtSpace = false;
 
-                //Check if a player is at position
-                for(int heroIdx=0; heroIdx<3; heroIdx++){
+                int heroIdx;
+                for (heroIdx = 0; heroIdx < 3; heroIdx++) {
                     int[] pos = playerPositions[heroIdx];
                     //If hero is at this square
-                    if(pos[0] == r && pos[1] == c){
+                    if (pos[0] == r && pos[1] == c) {
                         heroAtSpace = true;
-
-                        //check if monster is also at this square
-                        for(int[] monsterPos: monstersPositions) {
-                            if(monsterPos[0] == r && monsterPos[1] == c) {
-                                System.out.print("|" + new BoardCell(new HeroSpace(heroIdx)) +" "+ grid[r][c].toString() +" "+ new BoardCell(new MonsterSpace()));
-                                monsterAtSpace = true;
-                            }
-                        }
-
-                        //If just hero at space
-                        if(!monsterAtSpace){
-                            System.out.print("| " + new BoardCell(new HeroSpace(heroIdx)) +" "+ grid[r][c].toString()+" ");
-                        }
+                        break;
                     }
                 }
 
-                //check if just monster in space
-                for(int[] monsterPos: monstersPositions) {
-                    if(monsterPos[0] == r && monsterPos[1] == c && !heroAtSpace) {
-                        System.out.print("|  " + new BoardCell(new MonsterSpace()) +" " + grid[r][c].toString() +" ");
+                for (int[] monsterPos : monstersPositions) {
+                    if (monsterPos[0] == r && monsterPos[1] == c) {
                         monsterAtSpace = true;
                     }
                 }
 
-                //normal printing for when no entitity at space
-                if(!(heroAtSpace || monsterAtSpace)) {
-                    //Fix spacing for when H1 takes up two spaces
-                    if (grid[r][c].toString().length() > 12) {
-                        System.out.print("|  " + grid[r][c].toString() + "  ");
-                    } else {
-                        System.out.print("|  " + grid[r][c].toString() + "   ");
+                //When there is only hero
+                if(heroAtSpace && !monsterAtSpace){
+                    System.out.print("| " + new BoardCell(new HeroSpace(heroIdx)) + " " + grid[r][c].toString() + " ");
+                }
+                //when there is only monster
+                else if(monsterAtSpace && !heroAtSpace){
+                    System.out.print("|  " + new BoardCell(new MonsterSpace()) + " " + grid[r][c].toString() + " ");
+                }
+                //when there is both hero and monster at space
+                else if(monsterAtSpace && heroAtSpace){
+                    System.out.print("|" + new BoardCell(new HeroSpace(heroIdx)) + " " + grid[r][c].toString() + " " + new BoardCell(new MonsterSpace()));
+                }
+
+                  
+                    //normal printing for when no entitity at space
+                    if (!(heroAtSpace || monsterAtSpace)) {
+                        //Fix spacing for when H1 takes up two spaces
+                        if (grid[r][c].toString().length() > 12) {
+                            System.out.print("|  " + grid[r][c].toString() + "  ");
+                        } else {
+                            System.out.print("|  " + grid[r][c].toString() + "   ");
+                        }
                     }
                 }
+                System.out.println("|");
             }
-            System.out.println("|");        }
         printDivRowLine();
     }
 
+    
     //Method to print the divider row line
     public void printDivRowLine(){
         System.out.print("  ");
