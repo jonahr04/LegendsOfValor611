@@ -171,12 +171,12 @@ public class LegendsOfValor implements Game{
         }
     }
 
-    // TODO: Monsters and Heroes can share the same cell. Additionally, when they are in a
-    //  special cell, it’s better to display the cell information as well. Therefore, instead
-    //  of creating monster & Hero cell, perhaps we should extend the boardCell to display
-    //  the hero/monster in it.
     public void displayBoard(){
         Map<int[], BoardCell> originalCells = new HashMap<>();
+
+
+        gameBoard.displayBoard(playerPositions,valorBattle.getMonstersPositions());
+
 
         for (int[] pos : playerPositions) {
             originalCells.put(pos, gameBoard.getBoard()[pos[0]][pos[1]]);
@@ -195,7 +195,6 @@ public class LegendsOfValor implements Game{
             gameBoard.getBoard()[monsterPos[0]][monsterPos[1]] = new BoardCell(new MonsterSpace());
         }
 
-        gameBoard.displayBoard();
 
         for (Map.Entry<int[], BoardCell> entry : originalCells.entrySet()) {
             int[] pos = entry.getKey();
