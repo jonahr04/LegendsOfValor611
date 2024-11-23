@@ -10,6 +10,8 @@ public class ValorBattle {
     private List<Monster> monsters;
     List<int[]> monstersPositions;
 
+    boolean isGameOver;
+
 
     int round = 0;
     int roundsForNewMonsters = 4;
@@ -71,7 +73,13 @@ public class ValorBattle {
             createNewMonsters();
         }
         heroesMove();
+        if(isGameOver){
+            return;
+        }
         monstersMove();
+        if(isGameOver){
+            return;
+        }
         battleManager.endOfRoundRecovery();
         battleManager.levelUpPlayers();
         round++;
@@ -79,17 +87,20 @@ public class ValorBattle {
 
     void heroesMove(){
         // prompt, call game.move/purchase & heroMove
-        for(int heroIdx = 0; heroIdx < game.getHeroes().size(); heroIdx++){
+        for(int heroIdx = 0; heroIdx < game.getHeroes().size() && !isGameOver; heroIdx++){
             game.displayBoard();
             while(!game.getHeroAction(heroIdx)) {
                 game.displayBoard();
+            }
+            if(game.playerPositions[heroIdx][0] == 0){
+                isGameOver = true;
             }
         }
     }
 
     void monstersMove(){
         // Move or attack heroes by chance
-        for(int monsterIdx = 0; monsterIdx < monsters.size(); monsterIdx++){
+        for(int monsterIdx = 0; monsterIdx < monsters.size() && !isGameOver; monsterIdx++){
             int heroIdx = monstersPositions.get(monsterIdx)[1]/3;
             if(withinAttackRange(heroIdx, monsterIdx)){
                 monsterMove(heroIdx, monsterIdx);
@@ -124,6 +135,9 @@ public class ValorBattle {
     void monsterPosMove(int monsterIdx){
         System.out.println("Monster " + monsters.get(monsterIdx).getName() + " moves forward!");
         monstersPositions.get(monsterIdx)[0]++;
+        if(monstersPositions.get(monsterIdx)[0] == 7){
+            isGameOver = true;
+        }
     }
 
     void createNewMonsters(){
@@ -134,4 +148,5 @@ public class ValorBattle {
             monstersPositions.add(new int[]{game.nexusEndPositions[i][0], game.nexusEndPositions[i][1]});
         }
     }
+
 }

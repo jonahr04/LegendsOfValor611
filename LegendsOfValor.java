@@ -311,10 +311,12 @@ public class LegendsOfValor implements Game{
     @Override
     public boolean isGameOver(Board gameboard) {
         // TODO: More Logic for whether the game is over
-        if(Heros.isEmpty())
-            return true;
-        return false;
+        // The heroes win if any of them reach the monsters’ Nexus. The heroes lose if any monster reaches
+        // the heroes’ Nexus.
+        return valorBattle.isGameOver;
     }
+
+
 
     public List<Hero> getHeroes() {
         return Heros;
