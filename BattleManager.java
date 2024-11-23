@@ -79,7 +79,7 @@ public class BattleManager {
     }
 
     // This method will level up the players
-    private void levelUpPlayers() {
+    public void levelUpPlayers() {
         for(Hero hero : heroes) {
 
             int currentLevel = hero.getExperienceLevel();

@@ -465,7 +465,7 @@ public class LegendsOfValor implements Game{
 
                 System.out.println("\nSelect a target:");
                 for (int i = 0; i < monsters.size(); i++) {
-                    System.out.println((i + 1) + ". " + monsters.get(i).getName());
+                    System.out.println((i + 1) + ". " + monsters.get(i).getName() + " at position (" + (valorBattle.getMonstersPositions().get(i)[0] + 1) + ", " + (valorBattle.getMonstersPositions().get(i)[1] + 1) + ")");
                 }
                 System.out.print("Enter your choice (1-" + monsters.size() + "): ");
                 targetChoice = Integer.parseInt(scanner.nextLine());
