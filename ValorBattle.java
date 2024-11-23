@@ -56,9 +56,12 @@ public class ValorBattle {
         actionStrategy.execute(hero, monster);
         // If monster is dead: remove it from the list
         if(monster.getHP() <= 0){
+            int monsterLevel = monster.getLevel();
             System.out.println("\u001B[91m\n" + monster.getName() + " has been killed!\n\u001B[0m");
             monsters.remove(monster);
             monstersPositions.remove(monsterIdx);
+            hero.gainExperiencePoints(monsterLevel);  // Gain experience points
+            hero.gainMoney(monsterLevel*100);  // Gain gold
         }
     }
 
