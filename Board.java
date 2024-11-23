@@ -2,6 +2,8 @@
 //Board.java
 //This is class stores the board object and rows and columns
 
+import java.util.List;
+
 public class Board {
 
     int rows;
@@ -55,7 +57,7 @@ public class Board {
         //Print col numbers
         System.out.print("  ");
         for(int c = 0; c <  cols ; c++){
-            System.out.print("  "+ (c+1)+"  ");
+            System.out.print("   "+ (c+1)+"   ");
         }
         System.out.println();
 
@@ -67,11 +69,74 @@ public class Board {
         printDivRowLine();
     }
 
+    //Method to print the Board in the terminal with monster and player pos
+    public void displayBoard(int[][] playerPositions, List<int[]> monstersPositions) {
+        //Print col numbers
+        System.out.print("  ");
+        for(int c = 0; c <  cols ; c++){
+            System.out.print("   "+ (c+1)+"   ");
+        }
+        System.out.println();
+
+        for(int r = 0; r < rows ; r++){
+            //Display top line
+            printDivRowLine();
+
+            System.out.print((r+1)+" ");
+            for(int c = 0; c < cols; c++){
+
+                boolean heroAtSpace = false;
+                boolean monsterAtSpace = false;
+
+                //Check if a player is at position
+                for(int heroIdx=0; heroIdx<3; heroIdx++){
+                    int[] pos = playerPositions[heroIdx];
+                    //If hero is at this square
+                    if(pos[0] == r && pos[1] == c){
+                        heroAtSpace = true;
+
+                        //check if monster is also at this square
+                        for(int[] monsterPos: monstersPositions) {
+                            if(monsterPos[0] == r && monsterPos[1] == c) {
+                                System.out.print("|" + new BoardCell(new HeroSpace(heroIdx)) +" "+ grid[r][c].toString() +" "+ new BoardCell(new MonsterSpace()));
+                                monsterAtSpace = true;
+                            }
+                        }
+
+                        //If just hero at space
+                        if(!monsterAtSpace){
+                            System.out.print("| " + new BoardCell(new HeroSpace(heroIdx)) +" "+ grid[r][c].toString()+" ");
+                        }
+                    }
+                }
+
+                //check if just monster in space
+                for(int[] monsterPos: monstersPositions) {
+                    if(monsterPos[0] == r && monsterPos[1] == c && !heroAtSpace) {
+                        System.out.print("|  " + new BoardCell(new MonsterSpace()) +" " + grid[r][c].toString() +" ");
+                        monsterAtSpace = true;
+                    }
+                }
+
+                //normal printing for when no entitity at space
+                if(!(heroAtSpace || monsterAtSpace)) {
+                    //Fix spacing for when H1 takes up two spaces
+                    if (grid[r][c].toString().length() > 12) {
+                        System.out.print("|  " + grid[r][c].toString() + "  ");
+                    } else {
+                        System.out.print("|  " + grid[r][c].toString() + "   ");
+                    }
+                }
+            }
+            System.out.println("|");        }
+        printDivRowLine();
+    }
+
     //Method to print the divider row line
     public void printDivRowLine(){
         System.out.print("  ");
         for(int c = 0; c < cols; c++){
-            System.out.print("+----");
+            System.out.print("+------");
         }
         System.out.println("+");
     }
@@ -83,9 +148,9 @@ public class Board {
 
             //Fix spacing for when H1 takes up two spaces
             if(grid[row][c].toString().length()>12){
-                System.out.print("| "+ grid[row][c].toString()+" ");
+                System.out.print("|  "+ grid[row][c].toString()+"  ");
             }else {
-                System.out.print("| "+ grid[row][c].toString()+"  ");
+                System.out.print("|  "+ grid[row][c].toString()+"   ");
             }
         }
         System.out.println("|");
@@ -102,4 +167,5 @@ public class Board {
         }
         return true;
     }
+
 }
