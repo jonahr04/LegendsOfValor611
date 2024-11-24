@@ -16,12 +16,12 @@ public class Weapon implements Item, Equipable {
 
     // map to hold weapon attributes based on the weapon name
     private Map<String, int[]> weaponData = new HashMap<>(); {
-        weaponData.put("Sword", new int[] {500, 1, 800, 1});
-        weaponData.put("Bow", new int[] {300, 2, 600, 2});
-        weaponData.put("Scythe", new int[] {1000, 6, 1100, 2});
-        weaponData.put("Axe", new int[] {550, 5, 850, 1});
-        weaponData.put("TSwords", new int[] {1400, 8, 1600, 2});
-        weaponData.put("Dagger", new int[] {200, 1, 350, 1});
+        weaponData.put("Sword", new int[] {500, 1, 1100, 1});
+        weaponData.put("Bow", new int[] {300, 2, 800, 2});
+        weaponData.put("Scythe", new int[] {1000, 6, 1550, 2});
+        weaponData.put("Axe", new int[] {550, 5, 1175, 1});
+        weaponData.put("TSwords", new int[] {1400, 8, 2300, 2});
+        weaponData.put("Dagger", new int[] {200, 1, 450, 1});
     }
 
     // Constructor with all parameters
