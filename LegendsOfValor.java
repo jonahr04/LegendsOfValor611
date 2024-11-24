@@ -165,9 +165,9 @@ public class LegendsOfValor implements Game{
 
     @Override
     public void play(Player[] players) {
+        displayBoard();
         while (!isGameOver(gameBoard)) {
             valorBattle.round();
-            displayBoard();
         }
     }
 

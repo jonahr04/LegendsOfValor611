@@ -24,6 +24,25 @@ BoardCell.java: Represents individual cells on the board by storing the Object o
 GameRunner.java: Manages the overall game flow, allowing users to switch between different games, record results, and
 track player statistics. This class handles user-friendly commands such as quitting and switching games.
 
+
+                                            --------------------------
+                                             Legends of Valor Classes
+                                            --------------------------
+
+LegendsOfValor.java: Manages the main gameplay for Legends of Valor, handling character movement, user inputs, and interactions
+with board spaces.
+
+ValorBattle.java: Manages gameplay details, particularly those related to the monsters, and controls all specific movements during a round.
+
+NexusSpace.java: Represents a board cell at the top and bottom of each lane.
+
+BushSpace.java: Represents a board cell where heroes gains dexterity.
+
+CaveSpace.java: Represents a board cell where heroes gains agility.
+
+KoulouSpace.java: Represents a board cell where heroes gains strength.
+
+
                                             --------------------------
                                             Monsters and Heroes Classes
                                             --------------------------
@@ -174,1731 +193,1436 @@ with different combinations.
 
 ## Input/Output Example
 ---------------------------------------------------------------------------
-
 Choose a game to play:
 1. Tic-Tac-Toe
 2. Order and Chaos
 3. Super Tic Tac Toe
 4. Monsters and Heros
-5. Display Statistics
+5. Legends of Valor
+6. Display Statistics
 q. Quit
-4
-Welcome to Monsters and Heroes!
-In this game, you'll lead a team of heroes on a quest to battle monsters, collect items, and level up.
-Instructions:
- - Use W, A, S, D keys to move your heroes across the 8x8 board.
- - Use Q to quit the game, I to show information, and M to enter the market.
- - When you enter a Common space, you may encounter monsters to fight.
- - Enter Market spaces (M) to buy or sell items that aid in battles.
- - Avoid Inaccessible spaces (X) — your heroes cannot pass through them.
- - Your hero party is denoted by the H on the board.
-Goal: Defeat monsters, collect rewards, and see how long your heroes can survive!
-Good luck, and may your heroes emerge victorious!
-
-
-Enter the number of heroes to have in your party (1-3): 2
+5
  These are your available Heroes:
 Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
 ---------------------------------------------------------------------------------------------------------------------------
-1. Bran the Yassine     Warrior    100   100     700         500     600         1354    1                 7
-2. Pavel the Fierce     Paladin    100   300     750         700     700         2500    1                 7
-3. Maia the Noble       Warrior    100   200     750         650     700         2500    1                 7
-4. Mira the Fearless    Warrior    100   400     700         800     600         2500    1                 6
-5. Soren the Unyielding Paladin    100   300     750         650     700         2500    1                 7
-6. Drake the Just       Sorcerer   100   1000    700         400     500         2500    1                 5
-7. Talia the Cunning    Sorcerer   100   900     800         700     400         2500    1                 7
-8. Elara the Just       Sorcerer   100   800     850         400     600         2500    1                 6
-9. Finn the Wise        Paladin    100   500     500         500     500         2500    1                 5
-10. Rhea the Fearless    Sorcerer   100   1000    700         400     500         2500    1                 5
+1. Kyra the Fierce      Warrior    100   300     900         500     750         2546    1                 6
+2. Cedric the Yassine   Sorcerer   100   1000    700         400     500         2500    1                 5
+3. Talia the Vigilant   Paladin    100   300     750         700     700         2500    1                 7
+4. Luna the Unyielding  Sorcerer   100   800     800         800     800         2500    1                 8
+5. Ivy the Cunning      Sorcerer   100   1000    700         400     500         2500    1                 5
+6. Hector the Fearless  Sorcerer   100   800     800         800     800         2500    1                 8
+7. Ulric the Just       Paladin    100   500     500         500     500         2500    1                 5
+8. Sean the Steadfast   Warrior    100   400     800         400     700         2500    1                 7
+9. Gwen the Wise        Sorcerer   100   800     850         400     600         2500    1                 6
+10. Damon the Merciful   Paladin    100   100     600         500     400         2500    1                 5
 
-Select hero 1 of 2:
+Select hero 1 of 3:
+Enter the number of the hero you'd like to recruit: 1
+
+Remaining heroes:
+Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
+---------------------------------------------------------------------------------------------------------------------------
+1. Cedric the Yassine   Sorcerer   100   1000    700         400     500         2500    1                 5
+2. Talia the Vigilant   Paladin    100   300     750         700     700         2500    1                 7
+3. Luna the Unyielding  Sorcerer   100   800     800         800     800         2500    1                 8
+4. Ivy the Cunning      Sorcerer   100   1000    700         400     500         2500    1                 5
+5. Hector the Fearless  Sorcerer   100   800     800         800     800         2500    1                 8
+6. Ulric the Just       Paladin    100   500     500         500     500         2500    1                 5
+7. Sean the Steadfast   Warrior    100   400     800         400     700         2500    1                 7
+8. Gwen the Wise        Sorcerer   100   800     850         400     600         2500    1                 6
+9. Damon the Merciful   Paladin    100   100     600         500     400         2500    1                 5
+
+Select hero 2 of 3:
 Enter the number of the hero you'd like to recruit: 2
 
 Remaining heroes:
 Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
 ---------------------------------------------------------------------------------------------------------------------------
-1. Bran the Yassine     Warrior    100   100     700         500     600         1354    1                 7
-2. Maia the Noble       Warrior    100   200     750         650     700         2500    1                 7
-3. Mira the Fearless    Warrior    100   400     700         800     600         2500    1                 6
-4. Soren the Unyielding Paladin    100   300     750         650     700         2500    1                 7
-5. Drake the Just       Sorcerer   100   1000    700         400     500         2500    1                 5
-6. Talia the Cunning    Sorcerer   100   900     800         700     400         2500    1                 7
-7. Elara the Just       Sorcerer   100   800     850         400     600         2500    1                 6
-8. Finn the Wise        Paladin    100   500     500         500     500         2500    1                 5
-9. Rhea the Fearless    Sorcerer   100   1000    700         400     500         2500    1                 5
+1. Cedric the Yassine   Sorcerer   100   1000    700         400     500         2500    1                 5
+2. Luna the Unyielding  Sorcerer   100   800     800         800     800         2500    1                 8
+3. Ivy the Cunning      Sorcerer   100   1000    700         400     500         2500    1                 5
+4. Hector the Fearless  Sorcerer   100   800     800         800     800         2500    1                 8
+5. Ulric the Just       Paladin    100   500     500         500     500         2500    1                 5
+6. Sean the Steadfast   Warrior    100   400     800         400     700         2500    1                 7
+7. Gwen the Wise        Sorcerer   100   800     850         400     600         2500    1                 6
+8. Damon the Merciful   Paladin    100   100     600         500     400         2500    1                 5
 
-Select hero 2 of 2:
-Enter the number of the hero you'd like to recruit: 1
+Select hero 3 of 3:
+Enter the number of the hero you'd like to recruit: 3
 
-Your chosen heroes:
+Remaining heroes:
 Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
 ---------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         2500    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-2. Bran the Yassine     Warrior    100   100     700         500     600         1354    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-
-Current Position: (1, 8)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  | H  |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-s
-
-Current Position: (2, 8)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | H  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-m
-Items available for sale:
-    1.   - Electric_Arrows (Type: LightningSpell, Damage: 650, Mana Cost: 200, Level: 5, Price: 550)
-    2.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150)
-    4.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    5.   - Magic_Potion (Type: Potion, Effect Ammount: 100, Stat Effected: Mana, Level: 2, Price: 350)
-
-Choose a hero to enter the market:
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         2500    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-2. Bran the Yassine     Warrior    100   100     700         500     600         1354    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-
-Enter the hero number to enter the market or 0 to leave: 1
-
-Welcome to the market, Pavel the Fierce!
-Items available for sale:
-    1.   - Electric_Arrows (Type: LightningSpell, Damage: 650, Mana Cost: 200, Level: 5, Price: 550)
-    2.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150)
-    4.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    5.   - Magic_Potion (Type: Potion, Effect Ammount: 100, Stat Effected: Mana, Level: 2, Price: 350)
-
-Hero's current money: 2500
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 1
-
-Choose an item to buy (enter the item number or 0 to cancel):
-Items available for sale:
-    1.   - Electric_Arrows (Type: LightningSpell, Damage: 650, Mana Cost: 200, Level: 5, Price: 550)
-    2.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150)
-    4.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    5.   - Magic_Potion (Type: Potion, Effect Ammount: 100, Stat Effected: Mana, Level: 2, Price: 350)
-3
-
-Pavel the Fierce has bought Platinum_Shield for 150 coins.
-
-Welcome to the market, Pavel the Fierce!
-Items available for sale:
-    1.   - Electric_Arrows (Type: LightningSpell, Damage: 650, Mana Cost: 200, Level: 5, Price: 550)
-    2.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    3.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    4.   - Magic_Potion (Type: Potion, Effect Ammount: 100, Stat Effected: Mana, Level: 2, Price: 350)
-
-Hero's current money: 2350
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 0
-Items available for sale:
-    1.   - Electric_Arrows (Type: LightningSpell, Damage: 650, Mana Cost: 200, Level: 5, Price: 550)
-    2.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    3.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    4.   - Magic_Potion (Type: Potion, Effect Ammount: 100, Stat Effected: Mana, Level: 2, Price: 350)
-
-Choose a hero to enter the market:
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         2350    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-2. Bran the Yassine     Warrior    100   100     700         500     600         1354    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-
-Enter the hero number to enter the market or 0 to leave: 0
-
-Current Position: (2, 8)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | H  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-s
-
-Current Position: (3, 8)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | H  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-m
-Items available for sale:
-    1.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-    2.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    3.   - Breastplate (Type: Armor, Damage Reduction: 600, Level: 3, Price: 350)
-    4.   - Bow (Type: Weapon, Damage: 600, Hands Required: 2, Level: 2, Price: 300)
-    5.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    6.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    7.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-    8.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-
-Choose a hero to enter the market:
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         2350    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-2. Bran the Yassine     Warrior    100   100     700         500     600         1354    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-
-Enter the hero number to enter the market or 0 to leave: 1
-
-Welcome to the market, Pavel the Fierce!
-Items available for sale:
-    1.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-    2.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    3.   - Breastplate (Type: Armor, Damage Reduction: 600, Level: 3, Price: 350)
-    4.   - Bow (Type: Weapon, Damage: 600, Hands Required: 2, Level: 2, Price: 300)
-    5.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    6.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    7.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-    8.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-
-Hero's current money: 2350
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 1
-
-Choose an item to buy (enter the item number or 0 to cancel):
-Items available for sale:
-    1.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-    2.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    3.   - Breastplate (Type: Armor, Damage Reduction: 600, Level: 3, Price: 350)
-    4.   - Bow (Type: Weapon, Damage: 600, Hands Required: 2, Level: 2, Price: 300)
-    5.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    6.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    7.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-    8.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-7
-
-Pavel the Fierce has bought Strength_Potion for 200 coins.
-
-Welcome to the market, Pavel the Fierce!
-Items available for sale:
-    1.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-    2.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    3.   - Breastplate (Type: Armor, Damage Reduction: 600, Level: 3, Price: 350)
-    4.   - Bow (Type: Weapon, Damage: 600, Hands Required: 2, Level: 2, Price: 300)
-    5.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    6.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    7.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-
-Hero's current money: 2150
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 0
-Items available for sale:
-    1.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-    2.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    3.   - Breastplate (Type: Armor, Damage Reduction: 600, Level: 3, Price: 350)
-    4.   - Bow (Type: Weapon, Damage: 600, Hands Required: 2, Level: 2, Price: 300)
-    5.   - Wizard_Shield (Type: Armor, Damage Reduction: 1500, Level: 10, Price: 1200)
-    6.   - TSwords (Type: Weapon, Damage: 1600, Hands Required: 2, Level: 8, Price: 1400)
-    7.   - Full_Body_Armor (Type: Armor, Damage Reduction: 1100, Level: 8, Price: 1000)
-
-Choose a hero to enter the market:
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         2150    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-2. Bran the Yassine     Warrior    100   100     700         500     600         1354    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-
-Enter the hero number to enter the market or 0 to leave: 0
-
-Current Position: (3, 8)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | H  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-a
-
-Current Position: (3, 7)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | H  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-m
-Items available for sale:
-    1.   - Axe (Type: Weapon, Damage: 850, Hands Required: 1, Level: 5, Price: 550)
-    2.   - Thunder_Blast (Type: LightningSpell, Damage: 950, Mana Cost: 400, Level: 4, Price: 750)
-    3.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    4.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150)
-
-Choose a hero to enter the market:
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         2150    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-2. Bran the Yassine     Warrior    100   100     700         500     600         1354    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-
-Enter the hero number to enter the market or 0 to leave: 2
-
-Welcome to the market, Bran the Yassine!
-Items available for sale:
-    1.   - Axe (Type: Weapon, Damage: 850, Hands Required: 1, Level: 5, Price: 550)
-    2.   - Thunder_Blast (Type: LightningSpell, Damage: 950, Mana Cost: 400, Level: 4, Price: 750)
-    3.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    4.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150)
-
-Hero's current money: 1354
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 1
-
-Choose an item to buy (enter the item number or 0 to cancel):
-Items available for sale:
-    1.   - Axe (Type: Weapon, Damage: 850, Hands Required: 1, Level: 5, Price: 550)
-    2.   - Thunder_Blast (Type: LightningSpell, Damage: 950, Mana Cost: 400, Level: 4, Price: 750)
-    3.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    4.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150)
-3
-
-Bran the Yassine has bought Breath_of_Fire for 350 coins.
-
-Welcome to the market, Bran the Yassine!
-Items available for sale:
-    1.   - Axe (Type: Weapon, Damage: 850, Hands Required: 1, Level: 5, Price: 550)
-    2.   - Thunder_Blast (Type: LightningSpell, Damage: 950, Mana Cost: 400, Level: 4, Price: 750)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150)
-
-Hero's current money: 1004
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 1
-
-Choose an item to buy (enter the item number or 0 to cancel):
-Items available for sale:
-    1.   - Axe (Type: Weapon, Damage: 850, Hands Required: 1, Level: 5, Price: 550)
-    2.   - Thunder_Blast (Type: LightningSpell, Damage: 950, Mana Cost: 400, Level: 4, Price: 750)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150)
-3
-
-Bran the Yassine has bought Platinum_Shield for 150 coins.
-
-Welcome to the market, Bran the Yassine!
-Items available for sale:
-    1.   - Axe (Type: Weapon, Damage: 850, Hands Required: 1, Level: 5, Price: 550)
-    2.   - Thunder_Blast (Type: LightningSpell, Damage: 950, Mana Cost: 400, Level: 4, Price: 750)
-
-Hero's current money: 854
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 0
-Items available for sale:
-    1.   - Axe (Type: Weapon, Damage: 850, Hands Required: 1, Level: 5, Price: 550)
-    2.   - Thunder_Blast (Type: LightningSpell, Damage: 950, Mana Cost: 400, Level: 4, Price: 750)
-
-Choose a hero to enter the market:
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         2150    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-2. Bran the Yassine     Warrior    100   100     700         500     600         854     1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-
-Enter the hero number to enter the market or 0 to leave: 0
-
-Current Position: (3, 7)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | H  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-a
-No monsters encountered this time.
-
-Current Position: (3, 6)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  | H  | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-s
-
-Current Position: (4, 6)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | H  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-m
-Items available for sale:
-    1.   - Frost_Blizzard (Type: IceSpell, Damage: 850, Mana Cost: 350, Level: 5, Price: 750)
-    2.   - Luck_Elixir (Type: Potion, Effect Ammount: 65, Stat Effected: Agility, Level: 4, Price: 500)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200)
-    4.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500)
-
-Choose a hero to enter the market:
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         2150    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-2. Bran the Yassine     Warrior    100   100     700         500     600         854     1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-
-Enter the hero number to enter the market or 0 to leave: 1
-
-Welcome to the market, Pavel the Fierce!
-Items available for sale:
-    1.   - Frost_Blizzard (Type: IceSpell, Damage: 850, Mana Cost: 350, Level: 5, Price: 750)
-    2.   - Luck_Elixir (Type: Potion, Effect Ammount: 65, Stat Effected: Agility, Level: 4, Price: 500)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200)
-    4.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500)
-
-Hero's current money: 2150
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 1
-
-Choose an item to buy (enter the item number or 0 to cancel):
-Items available for sale:
-    1.   - Frost_Blizzard (Type: IceSpell, Damage: 850, Mana Cost: 350, Level: 5, Price: 750)
-    2.   - Luck_Elixir (Type: Potion, Effect Ammount: 65, Stat Effected: Agility, Level: 4, Price: 500)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200)
-    4.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500)
-3
-
-Pavel the Fierce has bought Dagger for 200 coins.
-
-Welcome to the market, Pavel the Fierce!
-Items available for sale:
-    1.   - Frost_Blizzard (Type: IceSpell, Damage: 850, Mana Cost: 350, Level: 5, Price: 750)
-    2.   - Luck_Elixir (Type: Potion, Effect Ammount: 65, Stat Effected: Agility, Level: 4, Price: 500)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500)
-
-Hero's current money: 1950
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 0
-Items available for sale:
-    1.   - Frost_Blizzard (Type: IceSpell, Damage: 850, Mana Cost: 350, Level: 5, Price: 750)
-    2.   - Luck_Elixir (Type: Potion, Effect Ammount: 65, Stat Effected: Agility, Level: 4, Price: 500)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500)
-
-Choose a hero to enter the market:
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         1950    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-    4.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: false)
-2. Bran the Yassine     Warrior    100   100     700         500     600         854     1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-
-Enter the hero number to enter the market or 0 to leave: 2
-
-Welcome to the market, Bran the Yassine!
-Items available for sale:
-    1.   - Frost_Blizzard (Type: IceSpell, Damage: 850, Mana Cost: 350, Level: 5, Price: 750)
-    2.   - Luck_Elixir (Type: Potion, Effect Ammount: 65, Stat Effected: Agility, Level: 4, Price: 500)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500)
-
-Hero's current money: 854
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 1
-
-Choose an item to buy (enter the item number or 0 to cancel):
-Items available for sale:
-    1.   - Frost_Blizzard (Type: IceSpell, Damage: 850, Mana Cost: 350, Level: 5, Price: 750)
-    2.   - Luck_Elixir (Type: Potion, Effect Ammount: 65, Stat Effected: Agility, Level: 4, Price: 500)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500)
-3
-
-Bran the Yassine has bought Sword for 500 coins.
-
-Welcome to the market, Bran the Yassine!
-Items available for sale:
-    1.   - Frost_Blizzard (Type: IceSpell, Damage: 850, Mana Cost: 350, Level: 5, Price: 750)
-    2.   - Luck_Elixir (Type: Potion, Effect Ammount: 65, Stat Effected: Agility, Level: 4, Price: 500)
-
-Hero's current money: 354
-Choose an action:
-1. Buy an item
-2. Sell an item
-0. Exit market for this hero
-Enter your choice: 0
-Items available for sale:
-    1.   - Frost_Blizzard (Type: IceSpell, Damage: 850, Mana Cost: 350, Level: 5, Price: 750)
-    2.   - Luck_Elixir (Type: Potion, Effect Ammount: 65, Stat Effected: Agility, Level: 4, Price: 500)
-
-Choose a hero to enter the market:
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         1950    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-    4.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: false)
-2. Bran the Yassine     Warrior    100   100     700         500     600         354     1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    4.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: false)
-
-Enter the hero number to enter the market or 0 to leave: 0
-
-Current Position: (4, 6)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | H  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-s
-
-Current Position: (5, 6)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | H  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-a
-
-								A battle begins! You encountered monsters!
-
-
-											-----HEROES-----
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    100   300     750         700     700         1950    1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-    4.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: false)
-2. Bran the Yassine     Warrior    100   100     700         500     600         354     1                 7
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    4.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: false)
-
-											-----MONSTERS-----
-
-Name							HP	Damage	Defense		Dodge Chance	Level
---------------------------------------------------------------------------------------------
-1. TheScaleless The Dragon     95    126     107           15.00          1
-2. Casper The Spirit           95    45      45            25.00          1
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 4
-
-You have 0/2 hands available.
-
-Equipment Menu:
-1. Equip Item
-2. Unequip Item
-3. Leave Equipment Menu
-Choose an option (1-3): 2
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-    4.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: false)
-Enter the item number to unequip: 1
-Bare Hands unequipped.
-
-Equipment Menu:
-1. Equip Item
-2. Unequip Item
-3. Leave Equipment Menu
-Choose an option (1-3): 1
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-    4.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: false)
-Enter the item number to equip: 4
-Dagger equipped as a weapon. 1 hands available.
-
-Equipment Menu:
-1. Equip Item
-2. Unequip Item
-3. Leave Equipment Menu
-Choose an option (1-3): 1
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    3.   - Strength_Potion (Type: Potion, Effect Ammount: 75, Stat Effected: Strength, Level: 1, Price: 200)
-    4.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: true)
-Enter the item number to equip: 2
-Platinum_Shield equipped as armor.
-
-Equipment Menu:
-1. Equip Item
-2. Unequip Item
-3. Leave Equipment Menu
-Choose an option (1-3): 3
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 3
-Strength_Potion removed from inventory.
-
-Pavel the Fierce uses Strength_Potion and Strength gains 75 points.
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 4
-
-You have 0/2 hands available.
-
-Equipment Menu:
-1. Equip Item
-2. Unequip Item
-3. Leave Equipment Menu
-Choose an option (1-3): 2
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: true)
-    2.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    4.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: false)
-Enter the item number to unequip: 1
-Bare Hands unequipped.
-
-Equipment Menu:
-1. Equip Item
-2. Unequip Item
-3. Leave Equipment Menu
-Choose an option (1-3): 1
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: false)
-    4.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: false)
-Enter the item number to equip: 3
-Platinum_Shield equipped as armor.
-
-Equipment Menu:
-1. Equip Item
-2. Unequip Item
-3. Leave Equipment Menu
-Choose an option (1-3): 1
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Breath_of_Fire (Type: FireSpell, Damage: 450, Mana Cost: 100, Level: 1, Price: 350)
-    3.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    4.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: false)
-Enter the item number to equip: 4
-Sword equipped as a weapon. 1 hands available.
-
-Equipment Menu:
-1. Equip Item
-2. Unequip Item
-3. Leave Equipment Menu
-Choose an option (1-3): 3
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 2
-
-Bran the Yassine uses Breath_of_Fire spell and TheScaleless The Dragon looses 450 defence points.
-Breath_of_Fire removed from inventory.
-
-									------MONSTERS BATTLE TURN------
-
-TheScaleless The Dragon attacks Bran the Yassine!  Bran the Yassine took 0 damage, and his armor blocked 200 damage!
-Casper The Spirit attacks Bran the Yassine!  Bran the Yassine took 0 damage, and his armor blocked 200 damage!
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked TheScaleless The Dragon for 101 damage with Dagger TheScaleless The Dragon defended 0 so 101 total damage done
-
-TheScaleless The Dragon has been killed!
-
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked Casper The Spirit for 131 damage with Sword Casper The Spirit defended 6 so 125 total damage done
-
-Casper The Spirit has been killed!
-
-The heroes have triumphed! Gaining rewards...
-
-Current Position: (5, 5)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    | H  | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-a
-No monsters encountered this time.
-
-Current Position: (5, 4)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    | H  |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-a
-No monsters encountered this time.
-
-Current Position: (5, 3)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    | H  |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-a
-
-								A battle begins! You encountered monsters!
-
-
-											-----HEROES-----
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    115   346     825         700     700         2150    1                 9
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: true)
-2. Bran the Yassine     Warrior    115   0       700         500     600         554     1                 9
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: true)
-
-											-----MONSTERS-----
-
-Name							HP	Damage	Defense		Dodge Chance	Level
---------------------------------------------------------------------------------------------
-1. Phaarthurnax The Dragon     95    125     147           14.00          1
-2. FallenAngel The Spirit      95    201     176           14.00          1
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked FallenAngel The Spirit for 101 damage with Dagger FallenAngel The Spirit defended 26 so 75 total damage done
-FallenAngel The Spirit dodged the attack! No damage done.
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked FallenAngel The Spirit for 131 damage with Sword FallenAngel The Spirit defended 26 so 105 total damage done
-
-FallenAngel The Spirit has been killed!
-
-
-									------MONSTERS BATTLE TURN------
-
-Phaarthurnax The Dragon attacks Bran the Yassine!  Bran the Yassine dodged the attack completely!
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked Phaarthurnax The Dragon for 101 damage with Dagger Phaarthurnax The Dragon defended 22 so 79 total damage done
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked Phaarthurnax The Dragon for 131 damage with Sword Phaarthurnax The Dragon defended 22 so 109 total damage done
-
-Phaarthurnax The Dragon has been killed!
-
-The heroes have triumphed! Gaining rewards...
-Leveling up Pavel the Fierce to level 2 because of their 11 experience points. Now at HP 200.
-Leveling up Bran the Yassine to level 2 because of their 11 experience points. Now at HP 200.
-
-Current Position: (5, 2)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  | H  |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-s
-Cannot move down!
-
-Current Position: (5, 2)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  | H  |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-d
-
-								A battle begins! You encountered monsters!
-
-
-											-----HEROES-----
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    200   398     825         700     700         2350    2                 11
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: true)
-2. Bran the Yassine     Warrior    200   0       700         500     600         754     2                 11
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: true)
-
-											-----MONSTERS-----
-
-Name							HP	Damage	Defense		Dodge Chance	Level
---------------------------------------------------------------------------------------------
-1. Andrealphus The Spirit      190   270     225           20.00          2
-2. BigBad-Wolf The Exoskeleton 190   135     225           15.00          2
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked Andrealphus The Spirit for 101 damage with Dagger Andrealphus The Spirit defended 33 so 68 total damage done
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked Andrealphus The Spirit for 131 damage with Sword Andrealphus The Spirit defended 33 so 98 total damage done
-Andrealphus The Spirit dodged the attack! No damage done.
-
-									------MONSTERS BATTLE TURN------
-
-Andrealphus The Spirit attacks Pavel the Fierce!  Pavel the Fierce dodged the attack completely!
-BigBad-Wolf The Exoskeleton attacks Bran the Yassine!  Bran the Yassine took 0 damage, and his armor blocked 200 damage!
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked BigBad-Wolf The Exoskeleton for 101 damage with Dagger BigBad-Wolf The Exoskeleton defended 33 so 68 total damage done
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked BigBad-Wolf The Exoskeleton for 131 damage with Sword BigBad-Wolf The Exoskeleton defended 33 so 98 total damage done
-
-									------MONSTERS BATTLE TURN------
-
-Andrealphus The Spirit attacks Pavel the Fierce!  Pavel the Fierce took 70 damage, and his armor blocked 200 damage!
-BigBad-Wolf The Exoskeleton attacks Pavel the Fierce!  Pavel the Fierce dodged the attack completely!
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked BigBad-Wolf The Exoskeleton for 101 damage with Dagger BigBad-Wolf The Exoskeleton defended 33 so 68 total damage done
-
-BigBad-Wolf The Exoskeleton has been killed!
-
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked Andrealphus The Spirit for 131 damage with Sword Andrealphus The Spirit defended 33 so 98 total damage done
-
-									------MONSTERS BATTLE TURN------
-
-Andrealphus The Spirit attacks Pavel the Fierce!  Pavel the Fierce dodged the attack completely!
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked Andrealphus The Spirit for 101 damage with Dagger Andrealphus The Spirit defended 33 so 68 total damage done
-
-Andrealphus The Spirit has been killed!
-
-The heroes have triumphed! Gaining rewards...
-
-Current Position: (5, 3)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    | H  |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-i
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    178   529     825         700     700         2750    2                 15
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: true)
-2. Bran the Yassine     Warrior    266   0       700         500     600         1154    2                 15
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: true)
-
-Current Position: (5, 3)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    | H  |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-d
-No monsters encountered this time.
-
-Current Position: (5, 4)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    | H  |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
+1. Cedric the Yassine   Sorcerer   100   1000    700         400     500         2500    1                 5
+2. Luna the Unyielding  Sorcerer   100   800     800         800     800         2500    1                 8
+3. Hector the Fearless  Sorcerer   100   800     800         800     800         2500    1                 8
+4. Ulric the Just       Paladin    100   500     500         500     500         2500    1                 5
+5. Sean the Steadfast   Warrior    100   400     800         400     700         2500    1                 7
+6. Gwen the Wise        Sorcerer   100   800     850         400     600         2500    1                 6
+7. Damon the Merciful   Paladin    100   100     600         500     400         2500    1                 5
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 | H1 N |  N   |  X   | H2 N |  N   |  X   | H3 N |  N   |
+  +------+------+------+------+------+------+------+------+
+New monsters created!
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
 w
-
-								A battle begins! You encountered monsters!
-
-
-											-----HEROES-----
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    178   529     825         700     700         2750    2                 15
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: true)
-2. Bran the Yassine     Warrior    266   0       700         500     600         1154    2                 15
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: true)
-
-											-----MONSTERS-----
-
-Name							HP	Damage	Defense		Dodge Chance	Level
---------------------------------------------------------------------------------------------
-1. TheScaleless The Dragon     190   252     215           30.00          2
-2. TheScaleless The Dragon     190   252     215           30.00          2
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  M N |  N   |  X   |  M N |  N   |  X   |  M N |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 | H1   |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   | H2 N |  N   |  X   | H3 N |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  M N |  N   |  X   |  M N |  N   |  X   |  M N |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 | H1   |      |  X   | H2   |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   | H3 N |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  M N |  N   |  X   |  M N |  N   |  X   |  M N |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 | H1   |      |  X   | H2   |  C   |  X   | H3   |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Monster TheScaleless The Dragon moves forward!
+Monster Casper The Spirit moves forward!
+Monster Alexstraszan The Dragon moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 | H1   |      |  X   | H2   |  C   |  X   | H3   |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+Going to BushSpace. Changing dexterity from 750 -> 1125
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 | H1 B |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   | H2   |  C   |  X   | H3   |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 | H1 B |  B   |  X   | H2   |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   | H3   |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 | H1 B |  B   |  X   | H2   |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Monster TheScaleless The Dragon moves forward!
+Monster Casper The Spirit moves forward!
+Monster Alexstraszan The Dragon moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 | H1 B |  B   |  X   | H2   |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+Leaving BushSpace. Changing dexterity from 1125 -> 750
+Going to CaveSpace. Changing agility from 500 -> 750
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   | H2   |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+Going to KoulouSpace. Changing strength from 750 -> 1125
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+Going to BushSpace. Changing dexterity from 500 -> 750
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Monster TheScaleless The Dragon moves forward!
+Monster Casper The Spirit moves forward!
+Monster Alexstraszan The Dragon moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  M K |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
 1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
 
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked TheScaleless The Dragon for 101 damage with Dagger TheScaleless The Dragon defended 32 so 69 total damage done
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked TheScaleless The Dragon for 131 damage with Sword TheScaleless The Dragon defended 32 so 99 total damage done
+Select a target:
+1. TheScaleless The Dragon at position (4, 1)
+2. Casper The Spirit at position (4, 4)
+3. Alexstraszan The Dragon at position (4, 7)
+Enter your choice (1-3): 1
+Kyra the Fierce attacked TheScaleless The Dragon for 70 damage with Bare Hands TheScaleless The Dragon defended 16 so 54 total damage done
 TheScaleless The Dragon dodged the attack! No damage done.
-
-									------MONSTERS BATTLE TURN------
-
-TheScaleless The Dragon attacks Pavel the Fierce!  Pavel the Fierce took 52 damage, and his armor blocked 200 damage!
-TheScaleless The Dragon attacks Pavel the Fierce!  Pavel the Fierce took 52 damage, and his armor blocked 200 damage!
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  M K |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
 1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 5
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
 
-											-----HEROES-----
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    79    568     825         700     700         2750    2                 15
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: true)
-2. Bran the Yassine     Warrior    285   0       700         500     600         1154    2                 15
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: true)
-
-											-----MONSTERS-----
-
-Name							HP	Damage	Defense		Dodge Chance	Level
---------------------------------------------------------------------------------------------
-1. TheScaleless The Dragon     190   252     215           30.00          2
-2. TheScaleless The Dragon     121   252     215           30.00          2
-
-Pavel the Fierce, choose your action:
+Select a target:
+1. TheScaleless The Dragon at position (4, 1)
+2. Casper The Spirit at position (4, 4)
+3. Alexstraszan The Dragon at position (4, 7)
+Enter your choice (1-3): 2
+Talia the Vigilant attacked Casper The Spirit for 81 damage with Bare Hands Casper The Spirit defended 6 so 75 total damage done
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  M K |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
 1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. TheScaleless The Dragon at position (4, 1)
+2. Casper The Spirit at position (4, 4)
+3. Alexstraszan The Dragon at position (4, 7)
+Enter your choice (1-3): 3
+Ivy the Cunning attacked Alexstraszan The Dragon for 60 damage with Bare Hands Alexstraszan The Dragon defended 16 so 44 total damage done
+Alexstraszan The Dragon dodged the attack! No damage done.
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  M K |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+TheScaleless The Dragon attacks Kyra the Fierce!  Kyra the Fierce dodged the attack completely!
+Casper The Spirit attacks Talia the Vigilant!  Talia the Vigilant took 45 damage!
+Alexstraszan The Dragon attacks Ivy the Cunning!  Ivy the Cunning dodged the attack completely!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  M K |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+New monsters created!
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. TheScaleless The Dragon at position (4, 1)
+2. Casper The Spirit at position (4, 4)
+3. Alexstraszan The Dragon at position (4, 7)
+4. BlueEyesWhite The Dragon at position (1, 1)
+5. Phaarthurnax The Dragon at position (1, 4)
+6. Casper The Spirit at position (1, 7)
+Enter your choice (1-6): 1
+Kyra the Fierce attacked TheScaleless The Dragon for 70 damage with Bare Hands TheScaleless The Dragon defended 16 so 54 total damage done
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  M N |  N   |  X   |  M N |  N   |  X   |  M N |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  M K |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. TheScaleless The Dragon at position (4, 1)
+2. Casper The Spirit at position (4, 4)
+3. Alexstraszan The Dragon at position (4, 7)
+4. BlueEyesWhite The Dragon at position (1, 1)
+5. Phaarthurnax The Dragon at position (1, 4)
+6. Casper The Spirit at position (1, 7)
+Enter your choice (1-6): 2
+Talia the Vigilant attacked Casper The Spirit for 81 damage with Bare Hands Casper The Spirit defended 6 so 75 total damage done
+Casper The Spirit dodged the attack! No damage done.
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  M N |  N   |  X   |  M N |  N   |  X   |  M N |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  M K |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. TheScaleless The Dragon at position (4, 1)
+2. Casper The Spirit at position (4, 4)
+3. Alexstraszan The Dragon at position (4, 7)
+4. BlueEyesWhite The Dragon at position (1, 1)
+5. Phaarthurnax The Dragon at position (1, 4)
+6. Casper The Spirit at position (1, 7)
+Enter your choice (1-6): 3
+Ivy the Cunning attacked Alexstraszan The Dragon for 60 damage with Bare Hands Alexstraszan The Dragon defended 16 so 44 total damage done
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  M N |  N   |  X   |  M N |  N   |  X   |  M N |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  M K |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+TheScaleless The Dragon attacks Kyra the Fierce!  Kyra the Fierce dodged the attack completely!
+Casper The Spirit attacks Talia the Vigilant!  Talia the Vigilant dodged the attack completely!
+Alexstraszan The Dragon attacks Ivy the Cunning!  Ivy the Cunning took 125 damage!
+Monster BlueEyesWhite The Dragon moves forward!
+Monster Phaarthurnax The Dragon moves forward!
+Monster Casper The Spirit moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  M K |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. TheScaleless The Dragon at position (4, 1)
+2. Casper The Spirit at position (4, 4)
+3. Alexstraszan The Dragon at position (4, 7)
+4. BlueEyesWhite The Dragon at position (2, 1)
+5. Phaarthurnax The Dragon at position (2, 4)
+6. Casper The Spirit at position (2, 7)
+Enter your choice (1-6): 1
+Kyra the Fierce attacked TheScaleless The Dragon for 70 damage with Bare Hands TheScaleless The Dragon defended 16 so 54 total damage done
+
+ Monster TheScaleless The Dragon has been killed!
+
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Casper The Spirit at position (4, 4)
+2. Alexstraszan The Dragon at position (4, 7)
+3. BlueEyesWhite The Dragon at position (2, 1)
+4. Phaarthurnax The Dragon at position (2, 4)
+5. Casper The Spirit at position (2, 7)
+Enter your choice (1-5): 2
+Hero 2 can not attack this monster, it is out of range!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Casper The Spirit at position (4, 4)
+2. Alexstraszan The Dragon at position (4, 7)
+3. BlueEyesWhite The Dragon at position (2, 1)
+4. Phaarthurnax The Dragon at position (2, 4)
+5. Casper The Spirit at position (2, 7)
 Enter your choice (1-5): 1
+Talia the Vigilant attacked Casper The Spirit for 81 damage with Bare Hands Casper The Spirit defended 6 so 75 total damage done
 
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked TheScaleless The Dragon for 101 damage with Dagger TheScaleless The Dragon defended 32 so 69 total damage done
+ Monster Casper The Spirit has been killed!
 
-Bran the Yassine, choose your action:
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
 1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Alexstraszan The Dragon at position (4, 7)
+2. BlueEyesWhite The Dragon at position (2, 1)
+3. Phaarthurnax The Dragon at position (2, 4)
+4. Casper The Spirit at position (2, 7)
+Enter your choice (1-4): 3
+Hero 3 can not attack this monster, it is out of range!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Alexstraszan The Dragon at position (4, 7)
+2. BlueEyesWhite The Dragon at position (2, 1)
+3. Phaarthurnax The Dragon at position (2, 4)
+4. Casper The Spirit at position (2, 7)
+Enter your choice (1-4): 2
+Hero 3 can not attack this monster, it is out of range!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Alexstraszan The Dragon at position (4, 7)
+2. BlueEyesWhite The Dragon at position (2, 1)
+3. Phaarthurnax The Dragon at position (2, 4)
+4. Casper The Spirit at position (2, 7)
+Enter your choice (1-4): 1
+Ivy the Cunning attacked Alexstraszan The Dragon for 60 damage with Bare Hands Alexstraszan The Dragon defended 16 so 44 total damage done
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   | H3 B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Alexstraszan The Dragon attacks Ivy the Cunning!  Ivy the Cunning took 125 damage!
+
+ Hero Ivy the Cunning has been killed!
+
+Monster BlueEyesWhite The Dragon moves forward!
+Monster Phaarthurnax The Dragon moves forward!
+Monster Casper The Spirit moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 | H1 C |  C   |  X   | H2 K |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   | H3 N |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+Leaving to CaveSpace. Changing agility from 750 -> 500
+Going to KoulouSpace. Changing strength from 900 -> 1350
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 | H1 K |      |  X   |      |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   | H2 K |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   | H3 N |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+t
+
+Enter the coordinates where you want to teleport to:
+Row:4
+Col:2
+
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 | H1 K | H2   |  X   |      |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   | H3 N |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 | H1 K | H2   |  X   |      |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   | H3   |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Monster Alexstraszan The Dragon moves forward!
+BlueEyesWhite The Dragon attacks Kyra the Fierce!  Kyra the Fierce dodged the attack completely!
+Monster Phaarthurnax The Dragon moves forward!
+Monster Casper The Spirit moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 | H1 K | H2   |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   | H3   |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Alexstraszan The Dragon at position (5, 7)
+2. BlueEyesWhite The Dragon at position (3, 1)
+3. Phaarthurnax The Dragon at position (4, 4)
+4. Casper The Spirit at position (4, 7)
+Enter your choice (1-4): 2
+Kyra the Fierce attacked BlueEyesWhite The Dragon for 92 damage with Bare Hands BlueEyesWhite The Dragon defended 12 so 80 total damage done
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  M C |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 | H1 K | H2   |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   | H3   |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Alexstraszan The Dragon at position (5, 7)
+2. BlueEyesWhite The Dragon at position (3, 1)
+3. Phaarthurnax The Dragon at position (4, 4)
+4. Casper The Spirit at position (4, 7)
+Enter your choice (1-4): 2
+Talia the Vigilant attacked BlueEyesWhite The Dragon for 81 damage with Bare Hands BlueEyesWhite The Dragon defended 12 so 69 total damage done
+
+ Monster BlueEyesWhite The Dragon has been killed!
+
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 | H1 K | H2   |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   |      |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   | H3   |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 | H1 K | H2   |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Alexstraszan The Dragon attacks Ivy the Cunning!  Ivy the Cunning took 125 damage!
+
+ Hero Ivy the Cunning has been killed!
+
+Monster Phaarthurnax The Dragon moves forward!
+Monster Casper The Spirit moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 | H1 K | H2   |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  M K |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+New monsters created!
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+Leaving to KoulouSpace. Changing strength from 1350 -> 900
+Going to CaveSpace. Changing agility from 500 -> 750
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  M N |  N   |  X   |  M N |  N   |  X   |  M N |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 | H1 C |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   | H2   |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  M K |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+Going to BushSpace. Changing dexterity from 700 -> 1050
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  M N |  N   |  X   |  M N |  N   |  X   |  M N |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 | H1 C | H2 B |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  M K |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Alexstraszan The Dragon at position (5, 7)
+2. Phaarthurnax The Dragon at position (5, 4)
+3. Casper The Spirit at position (5, 7)
+4. Aasterinian The Exoskeleton at position (1, 1)
+5. Ereshkigall The Spirit at position (1, 4)
+6. Casper The Spirit at position (1, 7)
+Enter your choice (1-6): 3
+Ivy the Cunning attacked Casper The Spirit for 60 damage with Bare Hands Casper The Spirit defended 6 so 54 total damage done
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  M N |  N   |  X   |  M N |  N   |  X   |  M N |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 | H1 C | H2 B |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  M K |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Alexstraszan The Dragon attacks Ivy the Cunning!  Ivy the Cunning took 125 damage!
+
+ Hero Ivy the Cunning has been killed!
+
+Monster Phaarthurnax The Dragon moves forward!
+Casper The Spirit attacks Ivy the Cunning!  Ivy the Cunning took 45 damage!
+Monster Aasterinian The Exoskeleton moves forward!
+Monster Ereshkigall The Spirit moves forward!
+Monster Casper The Spirit moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 | H1 C | H2 B |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |  M   |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Alexstraszan The Dragon at position (5, 7)
+2. Phaarthurnax The Dragon at position (6, 4)
+3. Casper The Spirit at position (5, 7)
+4. Aasterinian The Exoskeleton at position (2, 1)
+5. Ereshkigall The Spirit at position (2, 4)
+6. Casper The Spirit at position (2, 7)
+Enter your choice (1-6): 4
+Kyra the Fierce attacked Aasterinian The Exoskeleton for 70 damage with Bare Hands Aasterinian The Exoskeleton defended 23 so 47 total damage done
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |  M   |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 | H1 C | H2 B |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |  M   |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Alexstraszan The Dragon at position (5, 7)
+2. Phaarthurnax The Dragon at position (6, 4)
+3. Casper The Spirit at position (5, 7)
+4. Aasterinian The Exoskeleton at position (2, 1)
+5. Ereshkigall The Spirit at position (2, 4)
+6. Casper The Spirit at position (2, 7)
+Enter your choice (1-6): 4
+Talia the Vigilant attacked Aasterinian The Exoskeleton for 81 damage with Bare Hands Aasterinian The Exoskeleton defended 23 so 58 total damage done
+
+ Monster Aasterinian The Exoskeleton has been killed!
+
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 | H1 C | H2 B |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |  M   |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
+1. Attack
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
+
+Select a target:
+1. Alexstraszan The Dragon at position (5, 7)
+2. Phaarthurnax The Dragon at position (6, 4)
+3. Casper The Spirit at position (5, 7)
+4. Ereshkigall The Spirit at position (2, 4)
+5. Casper The Spirit at position (2, 7)
 Enter your choice (1-5): 1
+Ivy the Cunning attacked Alexstraszan The Dragon for 60 damage with Bare Hands Alexstraszan The Dragon defended 16 so 44 total damage done
 
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked TheScaleless The Dragon for 131 damage with Sword TheScaleless The Dragon defended 32 so 99 total damage done
+ Monster Alexstraszan The Dragon has been killed!
 
-									------MONSTERS BATTLE TURN------
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |  M   |  K   |  X   |  M   |      |
+  +------+------+------+------+------+------+------+------+
+3 | H1 C | H2 B |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |  M   |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |      |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Monster Phaarthurnax The Dragon moves forward!
+Casper The Spirit attacks Ivy the Cunning!  Ivy the Cunning took 45 damage!
 
-TheScaleless The Dragon attacks Bran the Yassine!  Bran the Yassine dodged the attack completely!
-TheScaleless The Dragon attacks Pavel the Fierce!  Pavel the Fierce took 52 damage, and his armor blocked 200 damage!
+ Hero Ivy the Cunning has been killed!
 
-									------HEROES BATTLE TURN------
+Monster Ereshkigall The Spirit moves forward!
+Monster Casper The Spirit moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 | H1 C | H2 B |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |  M   |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
 
-Pavel the Fierce, choose your action:
+Leveling up Talia the Vigilant from level 1 to level 2 due to their 10 experience points.
+New HP: 200
+Skill upgrades:
+ - Agility: 700 -> 735
+ - Dexterity: 1050 -> 1157 (favored)
+ - Strength: 1125 -> 1240 (favored)
+
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+Leaving to CaveSpace. Changing agility from 750 -> 500
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 | H1   |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   | H2 B |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |  M   |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 2: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+r
+Player 2 recalled to nexus!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 | H1   |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |  M   |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   | H2 N |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
 1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 5
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
 
-											-----HEROES-----
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    29    610     825         700     700         2750    2                 15
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: true)
-2. Bran the Yassine     Warrior    306   0       700         500     600         1154    2                 15
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: true)
-
-											-----MONSTERS-----
-
-Name							HP	Damage	Defense		Dodge Chance	Level
---------------------------------------------------------------------------------------------
-1. TheScaleless The Dragon     91    252     215           30.00          2
-2. TheScaleless The Dragon     52    252     215           30.00          2
-
-Pavel the Fierce, choose your action:
+Select a target:
+1. Phaarthurnax The Dragon at position (7, 4)
+2. Casper The Spirit at position (5, 7)
+3. Ereshkigall The Spirit at position (3, 4)
+4. Casper The Spirit at position (3, 7)
+Enter your choice (1-4): 3
+Hero 3 can not attack this monster, it is out of range!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 | H1   |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  M B |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |  M   |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   | H2 N |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 3: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+b
+Select an action:
 1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
+2. Spell
+3. Potion
+Enter your choice (1-3): 1
 
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked TheScaleless The Dragon for 101 damage with Dagger TheScaleless The Dragon defended 32 so 69 total damage done
+Select a target:
+1. Phaarthurnax The Dragon at position (7, 4)
+2. Casper The Spirit at position (5, 7)
+3. Ereshkigall The Spirit at position (3, 4)
+4. Casper The Spirit at position (3, 7)
+Enter your choice (1-4): 2
+Ivy the Cunning attacked Casper The Spirit for 60 damage with Bare Hands Casper The Spirit defended 6 so 54 total damage done
 
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
+ Monster Casper The Spirit has been killed!
 
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked TheScaleless The Dragon for 131 damage with Sword TheScaleless The Dragon defended 32 so 99 total damage done
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 | H1   |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  M C |  B   |  X   |  M C |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |      |  K   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |  M   |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   | H2 N |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Phaarthurnax The Dragon attacks Talia the Vigilant!  Talia the Vigilant took 125 damage!
+Monster Ereshkigall The Spirit moves forward!
+Monster Casper The Spirit moves forward!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 |  N   |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 | H1   |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |  M   |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   | H2 N |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Player, enter your move for hero 1: (w,a,s,d, m (nexus market) , e (equip), i (info), b (attack), r (recall), t (teleport), q (quit)):
+w
+Heroes Win! Hero0 has reached the heroes' nexus!
+     1      2      3      4      5      6      7      8
+  +------+------+------+------+------+------+------+------+
+1 | H1 N |  N   |  X   |  N   |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+2 |      |      |  X   |      |  K   |  X   |      |      |
+  +------+------+------+------+------+------+------+------+
+3 |  C   |  B   |  X   |  C   |  B   |  X   |  C   |  B   |
+  +------+------+------+------+------+------+------+------+
+4 |  K   |      |  X   |  M   |  K   |  X   |  M   |  K   |
+  +------+------+------+------+------+------+------+------+
+5 |  C   |  C   |  X   |  K   |      |  X   |  B   |  B   |
+  +------+------+------+------+------+------+------+------+
+6 |  B   |  B   |  X   |      |  B   |  X   | H3   |  C   |
+  +------+------+------+------+------+------+------+------+
+7 |      |      |  X   |  M   |  C   |  X   |      |  K   |
+  +------+------+------+------+------+------+------+------+
+8 |  N   |  N   |  X   | H2 N |  N   |  X   |  N   |  N   |
+  +------+------+------+------+------+------+------+------+
+Choose a game to play:
+1. Tic-Tac-Toe
+2. Order and Chaos
+3. Super Tic Tac Toe
+4. Monsters and Heros
+5. Legends of Valor
+6. Display Statistics
+q. Quit
+q
+Exiting the game. Thank you for playing!
 
-TheScaleless The Dragon has been killed!
-
-
-									------MONSTERS BATTLE TURN------
-
-TheScaleless The Dragon attacks Pavel the Fierce!  Pavel the Fierce dodged the attack completely!
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked TheScaleless The Dragon for 101 damage with Dagger TheScaleless The Dragon defended 32 so 69 total damage done
-TheScaleless The Dragon dodged the attack! No damage done.
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked TheScaleless The Dragon for 131 damage with Sword TheScaleless The Dragon defended 32 so 99 total damage done
-
-TheScaleless The Dragon has been killed!
-
-The heroes have triumphed! Gaining rewards...
-
-Current Position: (4, 4)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  | H  | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-i
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    33    704     825         700     700         3150    2                 19
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: true)
-2. Bran the Yassine     Warrior    352   0       700         500     600         1554    2                 19
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: true)
-
-Current Position: (4, 4)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  | H  | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    |    |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-s
-No monsters encountered this time.
-
-Current Position: (5, 4)
-Use W, A, S, D to move, I for info, M for market, Q to quit
-    1    2    3    4    5    6    7    8
-  +----+----+----+----+----+----+----+----+
-1 | M  | X  |    |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-2 | M  |    |    |    |    | M  |    | M  |
-  +----+----+----+----+----+----+----+----+
-3 | X  | M  | X  | M  | M  |    | M  | M  |
-  +----+----+----+----+----+----+----+----+
-4 |    |    | M  |    | M  | M  | X  |    |
-  +----+----+----+----+----+----+----+----+
-5 | M  |    |    | H  |    | M  |    | X  |
-  +----+----+----+----+----+----+----+----+
-6 |    | X  | M  | M  |    | X  |    |    |
-  +----+----+----+----+----+----+----+----+
-7 |    |    |    |    | X  | X  | X  |    |
-  +----+----+----+----+----+----+----+----+
-8 |    | X  |    |    |    |    | M  |    |
-  +----+----+----+----+----+----+----+----+
-a
-
-								A battle begins! You encountered monsters!
-
-
-											-----HEROES-----
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Pavel the Fierce     Paladin    33    704     825         700     700         3150    2                 19
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Dagger (Type: Weapon, Damage: 350, Hands Required: 1, Level: 1, Price: 200, Equipped: true)
-2. Bran the Yassine     Warrior    352   0       700         500     600         1554    2                 19
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: true)
-
-											-----MONSTERS-----
-
-Name							HP	Damage	Defense		Dodge Chance	Level
---------------------------------------------------------------------------------------------
-1. FallenAngel The Spirit      190   403     352           28.00          2
-2. Cyrrollalee The Exoskeleton 190   252     288           30.00          2
-
-									------HEROES BATTLE TURN------
-
-Pavel the Fierce, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Dagger is one-handed, but wielded with both hands, increasing damage by 75%!
-Pavel the Fierce attacked FallenAngel The Spirit for 101 damage with Dagger FallenAngel The Spirit defended 52 so 49 total damage done
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked Cyrrollalee The Exoskeleton for 131 damage with Sword Cyrrollalee The Exoskeleton defended 43 so 88 total damage done
-
-									------MONSTERS BATTLE TURN------
-
-FallenAngel The Spirit attacks Pavel the Fierce!  Pavel the Fierce took 203 damage, and his armor blocked 200 damage!
-
-Pavel the Fierce has been killed!
-
-Cyrrollalee The Exoskeleton attacks Bran the Yassine!  Bran the Yassine took 52 damage, and his armor blocked 200 damage!
-
-									------HEROES BATTLE TURN------
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 5
-
-											-----HEROES-----
-
-Name					Type		HP	 Mana	Strength	Agility	Dexterity	Money	Experience Level	Experience Points
----------------------------------------------------------------------------------------------------------------------------
-1. Bran the Yassine     Warrior    322   0       700         500     600         1554    2                 19
-    Inventory:
-    1.   - Bare Hands (Type: Weapon, Damage: 500, Hands Required: 2, Level: 1, Price: 0, Equipped: false)
-    2.   - Platinum_Shield (Type: Armor, Damage Reduction: 200, Level: 1, Price: 150, Equipped: true)
-    3.   - Sword (Type: Weapon, Damage: 800, Hands Required: 1, Level: 1, Price: 500, Equipped: true)
-
-											-----MONSTERS-----
-
-Name							HP	Damage	Defense		Dodge Chance	Level
---------------------------------------------------------------------------------------------
-1. FallenAngel The Spirit      141   403     352           28.00          2
-2. Cyrrollalee The Exoskeleton 102   252     288           30.00          2
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked FallenAngel The Spirit for 131 damage with Sword FallenAngel The Spirit defended 52 so 79 total damage done
-
-									------MONSTERS BATTLE TURN------
-
-FallenAngel The Spirit attacks Bran the Yassine!  Bran the Yassine took 203 damage, and his armor blocked 200 damage!
-Cyrrollalee The Exoskeleton attacks Bran the Yassine!  Bran the Yassine took 52 damage, and his armor blocked 200 damage!
-
-									------HEROES BATTLE TURN------
-
-Bran the Yassine, choose your action:
-1. Attack
-2. Cast Spell
-3. Use Potion
-4. Equip Item
-5. Show Stats
-Enter your choice (1-5): 1
-
-Sword is one-handed, but wielded with both hands, increasing damage by 75%!
-Bran the Yassine attacked Cyrrollalee The Exoskeleton for 131 damage with Sword Cyrrollalee The Exoskeleton defended 43 so 88 total damage done
-
-									------MONSTERS BATTLE TURN------
-
-FallenAngel The Spirit attacks Bran the Yassine!  Bran the Yassine took 203 damage, and his armor blocked 200 damage!
-
-Bran the Yassine has been killed!
-
-The monsters have won. Game over!
+Process finished with exit code 0

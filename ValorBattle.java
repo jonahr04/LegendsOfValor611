@@ -21,6 +21,7 @@ public class ValorBattle {
         battleManager = new BattleManager(game.getHeroes(), monsters);
         monsters = new ArrayList<>();
         monstersPositions = new ArrayList<>();
+        isGameOver = false;
     }
 
     List<int[]> getMonstersPositions() {
@@ -59,7 +60,7 @@ public class ValorBattle {
         // If monster is dead: remove it from the list
         if(monster.getHP() <= 0){
             int monsterLevel = monster.getLevel();
-            System.out.println("\u001B[91m\n" + monster.getName() + " has been killed!\n\u001B[0m");
+            System.out.println("\u001B[91m\n Monster " + monster.getName() + " has been killed!\n\u001B[0m");
             monsters.remove(monster);
             monstersPositions.remove(monsterIdx);
             hero.gainExperiencePoints(monsterLevel);  // Gain experience points
@@ -77,6 +78,7 @@ public class ValorBattle {
             return;
         }
         monstersMove();
+        game.displayBoard();
         if(isGameOver){
             return;
         }
@@ -88,26 +90,30 @@ public class ValorBattle {
     void heroesMove(){
         // prompt, call game.move/purchase & heroMove
         for(int heroIdx = 0; heroIdx < game.getHeroes().size() && !isGameOver; heroIdx++){
-            game.displayBoard();
             while(!game.getHeroAction(heroIdx)) {
                 game.displayBoard();
             }
             if(game.playerPositions[heroIdx][0] == 0){
+                System.out.println("Heroes Win! Hero" + heroIdx + " has reached the heroes' nexus!");
                 isGameOver = true;
             }
+            game.displayBoard();
         }
     }
 
     void monstersMove(){
         // Move or attack heroes by chance
         for(int monsterIdx = 0; monsterIdx < monsters.size() && !isGameOver; monsterIdx++){
-            int heroIdx = monstersPositions.get(monsterIdx)[1]/3;
-            if(withinAttackRange(heroIdx, monsterIdx)){
-                monsterMove(heroIdx, monsterIdx);
-            }else{
+            boolean hasMoved = false;
+            for(int heroIdx = 0; heroIdx < game.getHeroes().size() && !hasMoved; heroIdx++){
+                if(withinAttackRange(heroIdx, monsterIdx)){
+                    monsterMove(heroIdx, monsterIdx);
+                    hasMoved = true;
+                }
+            }
+            if(!hasMoved){
                 monsterPosMove(monsterIdx);
             }
-
         }
 
     }
@@ -120,7 +126,7 @@ public class ValorBattle {
         }
         // If hero is dead: initialize its position & reset MP
         if(hero.getHP() <= 0){
-            System.out.println("\u001B[91m\n" + hero.getName() + " has been killed!\n\u001B[0m");
+            System.out.println("\u001B[91m\n Hero " + hero.getName() + " has been killed!\n\u001B[0m");
             resPawnHero(heroIdx);
         }
     }
@@ -136,6 +142,7 @@ public class ValorBattle {
         System.out.println("Monster " + monsters.get(monsterIdx).getName() + " moves forward!");
         monstersPositions.get(monsterIdx)[0]++;
         if(monstersPositions.get(monsterIdx)[0] == 7){
+            System.out.println("Monsters Win! Monster " + monsters.get(monsterIdx).getName() + " has reached the heroes' nexus!");
             isGameOver = true;
         }
     }
