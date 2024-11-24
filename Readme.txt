@@ -187,9 +187,11 @@ with different combinations.
 
 ## How to compile and run
 ---------------------------------------------------------------------------
-1. Unzip MonstersAndHeros
-2. Locate the main file
-3. Run the main file
+1. In terminal, locate the LegendsOfValor folder
+2. cd the src folder
+3. run command 'javac Main.java'
+4. run command 'java Main'
+5. continue to play the game as demonstrated
 
 ## Input/Output Example
 ---------------------------------------------------------------------------
