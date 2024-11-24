@@ -47,7 +47,7 @@ public class AttackStrategy implements ActionStrategy {
         if (!equippedWeapons.isEmpty()) {
             System.out.println("\u001B[91m" + hero.getName() + " attacked " + target.getName() + " for " + totalDamage
                     + " damage with " + (equippedWeapons.size() == 2 ? "dual weapons" : equippedWeapons.get(0).getName())
-                    + " "+ target.getName()+" defended "+monsterDefence+" so "+ damageAfterDefence+" total damage done\u001B[0m");
+                    + " "+ target.getName()+" defended "+monsterDefence+" so "+ damageAfterDefence+"/"+target.getHP()+" total damage done\u001B[0m");
         }
 
         // Check if the monster dodges
