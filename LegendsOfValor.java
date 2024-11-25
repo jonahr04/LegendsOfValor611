@@ -512,9 +512,9 @@ public class LegendsOfValor implements Game{
                 valorBattle.heroMove(heroIdx, monsterIdx, actionChoice);
                 return true;
             case "quit":
+                valorBattle.isGameOver=true;
                 System.out.println("Quitting the game.");
-                //TODO Make implementation
-                return false;
+                return true;
             case "show information":
                 displayHeroes(getHeroes());
                 System.out.println();
